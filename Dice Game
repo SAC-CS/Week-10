@@ -1,0 +1,126 @@
+// Week 10 Dice Game Homework
+
+import java.util.Scanner;
+
+public class DiceGame 
+{
+	public static void main( String[] args)
+	{
+			
+		Scanner input = new Scanner( System.in );	
+			
+		int diceNum1;
+		int diceNum2;
+		int diceNum3;
+		int sum;
+		int userGuess;
+		int choice;
+
+		boolean go = true;
+		boolean run = true;
+		String guess_againResponse = null;
+			
+			
+		System.out.println( "Dice Game");
+			
+		while( go == true )
+		{
+				
+			while( run )
+			{
+				System.out.print( "\nHow many dice to roll? (1, 2, or 3): ");
+				choice = input.nextInt();
+					
+				if ( choice == 1 )
+				{
+					diceNum1 = 1 + (int)( Math.random() * 6);
+					
+					System.out.print( "Guess the number rolled: " );
+					userGuess = input.nextInt();
+			
+					System.out.printf( "%s \"%d\"\n" , "Die rolled a" , diceNum1);
+					
+					if ( diceNum1 == userGuess )
+					{
+						System.out.println( "You guessed correctly!" );
+					}
+					else
+						System.out.println( "You guessed incorrectly" );
+					run = false;
+					}
+					
+					if ( choice == 2)
+					{
+						diceNum1 = 1 + (int)( Math.random() * 6);
+						diceNum2 = 1 + (int)( Math.random() * 6);
+						
+						sum = diceNum1 + diceNum2;
+						
+						System.out.print( "Guess the number rolled: " );
+						userGuess = input.nextInt();
+				
+						System.out.printf( "%s \"%d\"\n" , "Die 1 rolled a" , diceNum1);
+						System.out.printf( "%s \"%d\"\n" , "Die 2 rolled a" , diceNum2);
+						System.out.printf( "%s %d\n" , "Roll =" , sum );
+						
+						if ( sum == userGuess )
+						{
+							System.out.println( "You guessed correctly!" );
+						}
+						else
+							System.out.println( "You guessed incorrectly" );
+						run = false;
+					}
+		
+					if ( choice == 3)
+					{
+						diceNum1 = 1 + (int)( Math.random() * 6);
+						diceNum2 = 1 + (int)( Math.random() * 6);
+						diceNum3 = 1 + (int)( Math.random() * 6);
+						
+						sum = diceNum1 + diceNum2 + diceNum3;
+						
+						System.out.print( "Guess the number rolled: " );
+						userGuess = input.nextInt();
+				
+						System.out.printf( "%s \"%d\"\n" , "Die 1 rolled a" , diceNum1);
+						System.out.printf( "%s \"%d\"\n" , "Die 2 rolled a" , diceNum2);
+						System.out.printf( "%s \"%d\"\n" , "Die 3 rolled a" , diceNum3);
+						System.out.printf( "%s %d\n" , "Roll =" , sum );
+						
+						if ( sum == userGuess )
+						{
+							System.out.println( "You guessed correctly!" );
+						}
+						else
+							System.out.println( "You guessed incorrectly" );
+						run = false;
+					}
+				
+				}
+						
+				if(run == false)
+				{	    
+					System.out.print("\nWould you like to play again? (enter yes or no): ");
+					guess_againResponse = input.next();
+				}
+					   		
+				if( guess_againResponse.equals("yes") )
+				{
+					run = true;
+				}
+				else if ( guess_againResponse.equals("no"))
+				{
+					go = false;
+					System.out.println( "Game over");
+				}
+					
+				else
+				{
+					System.out.println( "Invalid Response! Please enter yes or no");	
+				}
+		}
+					
+	}
+		
+}
